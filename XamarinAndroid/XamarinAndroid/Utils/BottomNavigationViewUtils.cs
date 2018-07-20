@@ -38,8 +38,7 @@ namespace XamarinAndroid.Utils
 
                 for (int i = 0; i < menuView.ChildCount; i++)
                 {
-                    var item = menuView.GetChildAt(i) as BottomNavigationItemView;
-                    if (item == null)
+                    if (!(menuView.GetChildAt(i) is BottomNavigationItemView item))
                         continue;
 
                     item.SetShiftingMode(enableItemShiftMode);
@@ -54,5 +53,7 @@ namespace XamarinAndroid.Utils
                 System.Diagnostics.Debug.WriteLine($"Unable to set shift mode: {ex}");
             }
         }
+
+
     }
 }
